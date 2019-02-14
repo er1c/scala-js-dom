@@ -775,6 +775,16 @@ abstract class Element
    */
   var innerHTML: String = js.native
 
+  /**
+   * The id property of the Element interface represents the element's identifier,
+    * reflecting the id global attribute.
+    *
+    * If the id value is not the empty string, it must be unique in a document.
+    *
+    * The id is often used with getElementById() to retrieve a particular element.
+    * Another common case is to use an element's ID as a selector when styling the
+    * document with CSS.
+   */
   var id: String = js.native
 
   /**
@@ -806,14 +816,34 @@ abstract class Element
   var accessKey: String = js.native
 
   /**
-   * Supported by FF&gt;3.6, any Opera, any Chrome, any IE, any Safari
+   * The Element.classList is a read-only property that returns a live DOMTokenList
+   * collection of the class attributes of the element.
+   *
+   * Using classList is a convenient alternative to accessing an element's list
+   * of classes as a space-delimited string via element.className.
+   *
+   * MDN
    */
   var classList: DOMTokenList = js.native
 
-  def scrollIntoView(top: Boolean = js.native): Unit = js.native
+  /**
+   * The Element.scrollIntoView() method scrolls the element on which it's called into the visible area of the browser window.
+   *
+   * @param alignToTop Is a Boolean value:
+   *                   If true, the top of the element will be aligned to the top of the visible area of the scrollable ancestor.
+   *                     Corresponds to scrollIntoViewOptions: {block: "start", inline: "nearest"}. This is the default value.
+   *                   If false, the bottom of the element will be aligned to the bottom of the visible area of the scrollable ancestor.
+   *                     Corresponds to scrollIntoViewOptions: {block: "end", inline: "nearest"}.
+   *
+   * TODO: scrollIntoViewOptions
+   * MDN
+   */
+  def scrollIntoView(alignToTop: Boolean = js.native): Unit = js.native
 
   /**
-   * Supported by FF&gt;8, Opera&gt;7, Chrome&gt;1, IE&gt;4, Safari&gt;4
+   * The insertAdjacentHTML() method of the Element interface parses the specified text as HTML or XML and inserts the resulting nodes into the DOM tree at a specified position. It does not reparse the element it is being used on, and thus it does not corrupt the existing elements inside that element. This avoids the extra step of serialization, making it much faster than direct innerHTML manipulation.
+   *
+   * MDN
    */
   def insertAdjacentHTML(where: String, html: String): Unit = js.native
 
